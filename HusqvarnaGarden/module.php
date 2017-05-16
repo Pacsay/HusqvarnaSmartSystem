@@ -45,7 +45,7 @@
         }
 
         public function loadLocations($dump = false) {
-          $url = $this->ReadPropertyString("LoginUrl") . $this -> userId;
+          $url = $this->ReadPropertyString("LocationsUrl") . $this -> userId;
 
           $request = curl_init($url);
           curl_setopt($request, CURLOPT_CUSTOMREQUEST, "GET");
