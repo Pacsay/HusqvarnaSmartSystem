@@ -1,0 +1,14 @@
+{
+	"id": "{1D203680-B1AD-447D-BC0D-745837BA66A4}",
+	"name": "HusqvarnaGarden",
+	"type": 3,
+	"vendor": "",
+	"aliases":
+	[
+		"Husqvarna Garten"
+	],
+	"parentRequirements": [],
+	"childRequirements": [],
+	"implemented": [],
+	"prefix": "EZS"
+}

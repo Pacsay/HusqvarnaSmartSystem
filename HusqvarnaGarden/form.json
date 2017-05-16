@@ -1,0 +1,7 @@
+{
+	"elements":
+	[
+		{ "name": "LocationId", "type": "ValidationTextBox", "caption": "Garden ID" },
+		{ "name": "LocationName", "type": "ValidationTextBox", "caption": "Garden Name" }
+	]
+}
