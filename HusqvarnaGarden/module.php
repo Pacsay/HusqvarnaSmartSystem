@@ -1,6 +1,6 @@
 <?
     // Klassendefinition
-    class ModulnameXYZ extends IPSModule {
+    class HusqvarnaGarden extends IPSModule {
 
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
@@ -17,7 +17,7 @@
             parent::Create();
 
             $this->RegisterPropertyString("LocationId", "123");
-            $this->RegisterPropertyString("LocationName", "MyGarden"); 
+            $this->RegisterPropertyString("LocationName", "MyGarden");
         }
 
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
