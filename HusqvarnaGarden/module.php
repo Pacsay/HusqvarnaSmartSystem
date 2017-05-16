@@ -2,7 +2,7 @@
     // Klassendefinition
     class HusqvarnaGarden extends IPSModule {
 
-      var $userId, $token;
+      var $userId, $token, $locations;
 
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
@@ -25,6 +25,7 @@
             $this->RegisterPropertyString("password", "pw140583");
 
             $this->RegisterPropertyString("LoginUrl", "https://smart.gardena.com/sg-1/sessions");
+            $this->RegisterPropertyString("LocationsUrl", "https://smart.gardena.com/sg-1/locations/?user_id=");
 
 
 
@@ -39,21 +40,36 @@
 
 
         public function connect() {
-            $this->authenticate();
+            $this->authenticate(true);
+            $this->loadLocations(true);
         }
 
-        public function dumpLocationList() {
+        public function loadLocations($dump = false) {
+          $url = $this->ReadPropertyString("LoginUrl") . $this -> userId;
+
+          $request = curl_init($url);
+          curl_setopt($request, CURLOPT_CUSTOMREQUEST, "GET");
+          curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($request, CURLOPT_HTTPHEADER, array(
+              'Content-Type:application/json',
+              'X-Session:' . $this -> token)
+          );
+
+          $data = json_decode(curl_exec($request)) -> locations;
+
+          if($dump){
+            var_dump($data);
+            echo "\n\n";
+          }
+
+          return $data;
 
         }
 
 
         private function authenticate($dump = false) {
-          $data = array(
-              "sessions" => array(
-                  "email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). "")
-                  );
-
-          $data_string = json_encode($data);
+          $credentials = array("sessions" => array("email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). ""));
+          $data_string = json_encode($credentials);
 
           $request = curl_init($this->ReadPropertyString("LoginUrl"));
           curl_setopt($request, CURLOPT_CUSTOMREQUEST, "POST");
