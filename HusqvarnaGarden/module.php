@@ -37,22 +37,17 @@
 
         }
 
-        /**
-        * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
-        * Die Funktionen werden, mit dem selbst eingerichteten Prefix, in PHP und JSON-RPC wiefolgt zur Verfügung gestellt:
-        *
-        * ABC_MeineErsteEigeneFunktion($id);
-        *
-        */
+
         public function connect() {
-            $this->token = $this->getNewToken();
-            echo ($this->token);
+            $this->authenticate();
+        }
+
+        public function dumpLocationList() {
+
         }
 
 
-
-
-        private function getNewToken() {
+        private function authenticate($dump = false) {
           $data = array(
               "sessions" => array(
                   "email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). "")
@@ -73,8 +68,13 @@
           $result = curl_exec($request);
           $data = json_decode($result);
 
-          return($data -> sessions -> token);
+          if($dump){
+            var_dump($data);
+            echo "\n\n";
+          }
 
+          $this -> token = $data -> sessions -> token;
+          $this -> userId = $data -> sessions -> user_id;
         }
 
     }
