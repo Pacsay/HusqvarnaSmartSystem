@@ -45,7 +45,7 @@
         *
         */
         public function connect() {
-            $this->token = $this->getNewToken());
+            $this->token = $this->getNewToken();
             echo ($this->token);
         }
 
