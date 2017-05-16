@@ -1,0 +1,14 @@
+{
+	"id": "{700811f4-36a2-4e73-b822-e05fff1df4db}",
+	"name": "HusqvarnaGateway",
+	"type": 3,
+	"vendor": "",
+	"aliases":
+	[
+		"Husqvarna Gateway"
+	],
+	"parentRequirements": [],
+	"childRequirements": [],
+	"implemented": [],
+	"prefix": "HSS"
+}

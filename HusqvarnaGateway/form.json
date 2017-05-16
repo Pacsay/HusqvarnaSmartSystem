@@ -1,0 +1,6 @@
+{
+	"elements":
+	[
+		{ "name": "DeviceId", "type": "ValidationTextBox", "caption": "Device ID" }
+	]
+}
