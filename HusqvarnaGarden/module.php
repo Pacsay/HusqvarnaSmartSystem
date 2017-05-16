@@ -42,7 +42,8 @@
         *
         */
         public function connect() {
-            $this->getToken();
+            $this->RegisterPropertyString("token", $this->getToken());
+            echo ()$this->ReadPropertyString("token"));
         }
 
 
@@ -69,10 +70,7 @@
           $result = curl_exec($request);
           $data = json_decode($result);
 
-          var_dump($data);
-
-
-
+          return($data -> sessions -> token);
 
         }
 
