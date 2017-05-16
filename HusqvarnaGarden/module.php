@@ -51,7 +51,7 @@
         private function getToken() {
           $data = array(
               "sessions" => array(
-                  "email" => "$this->user", "password" => "$this->password")
+                  "email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). "")
                   );
 
           $data_string = json_encode($data);
