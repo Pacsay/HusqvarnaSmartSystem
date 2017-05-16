@@ -22,7 +22,7 @@
             $this->RegisterPropertyString("user", "info@buttge.de");
             $this->RegisterPropertyString("password", "pw140583");
 
-            $this->RegisterPropertyString("UrlLogin", "https://smart.gardena.com/sg-1/sessions");
+            $this->RegisterPropertyString("LoginUrl", "https://smart.gardena.com/sg-1/sessions");
 
 
 
@@ -56,7 +56,20 @@
 
           $data_string = json_encode($data);
 
-          var_dump($data_string);
+          $request = curl_init($this->ReadPropertyString("LoginUrl"));
+          curl_setopt($request, CURLOPT_CUSTOMREQUEST, "POST");
+          curl_setopt($request, CURLOPT_POSTFIELDS, $data_string);
+          curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($request, CURLOPT_HTTPHEADER, array(
+              'Content-Type:application/json',
+              'Content-Length: ' . strlen($data_string))
+          );
+
+          $result = curl_exec($request);
+          $data = json_decode($result);
+
+          var_dump($data);
 
 
 
