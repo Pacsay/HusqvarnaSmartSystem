@@ -16,8 +16,16 @@
             // Diese Zeile nicht löschen.
             parent::Create();
 
-            $this->RegisterPropertyString("LocationId", "123");
-            $this->RegisterPropertyString("LocationName", "MyGarden");
+            $this->RegisterPropertyString("LocationId", "");
+            $this->RegisterPropertyString("LocationName", "");
+
+            $this->RegisterPropertyString("user", "info@buttge.de");
+            $this->RegisterPropertyString("password", "pw140583");
+
+            $this->RegisterPropertyString("UrlLogin", "https://smart.gardena.com/sg-1/sessions");
+
+
+
         }
 
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
@@ -33,8 +41,27 @@
         * ABC_MeineErsteEigeneFunktion($id);
         *
         */
-        public function MeineErsteEigeneFunktion() {
-            echo $this->InstanceID;
+        public function connect() {
+            $this->getToken();
         }
+
+
+
+
+        private function getToken() {
+          $data = array(
+              "sessions" => array(
+                  "email" => "$this->user", "password" => "$this->password")
+                  );
+
+          $data_string = json_encode($data);
+
+          var_dump($data_string);
+
+
+
+
+        }
+
     }
 ?>
