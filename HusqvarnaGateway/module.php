@@ -29,6 +29,10 @@
 
         }
 
+        public function GetGardenaId() {
+          return $this->ReadPropertyString("DeviceId");
+        }
+
 
       /*...*/
 
