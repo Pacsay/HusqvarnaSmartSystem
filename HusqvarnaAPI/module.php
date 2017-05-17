@@ -48,12 +48,12 @@
           echo "TimeDiv is: " . (time() - $this->GetBuffer("TokenStamp")) . "\n";
           if ((time() - $this->GetBuffer("TokenStamp")) <= 30) {
             echo "reusing Token " . $this -> token . "\n" ;
-            return $this -> token;
+            return $this->GetBuffer("Token");
           } else {
             echo "renewing Token \n";
             if($this -> authenticate()) {
               echo "New TokenStamp " . $this->GetBuffer("TokenStamp") . "\n";
-              return $this -> token;
+              return $this->GetBuffer("Token");
             } else {
               return NULL;
             }
@@ -88,20 +88,15 @@
               echo "\n\n";
             }
 
-            $this -> token = $data -> sessions -> token;
+            $this->SetBuffer("Token", $data -> sessions -> token);
             $this->SetBuffer("TokenStamp", time());
-            $this -> userId = $data -> sessions -> user_id;
+            $this->SetBuffer("UserId", $data -> sessions -> user_id);
 
             return true;
           } else {
             return false;
           }
         }
-
-
-
-
-
 
     }
 ?>
