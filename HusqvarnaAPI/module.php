@@ -24,9 +24,7 @@
             $this->RegisterPropertyString("LocationsUrl", "https://smart.gardena.com/sg-1/locations/?user_id=");
             $this->RegisterPropertyString("DevicesUrl", "https://smart.gardena.com/sg-1/devices?locationId=");
 
-            $this->RegisterVariableString("Token", "Token");
-
-            $this->SetBuffer("tokenStamp", 0);
+            $this->SetBuffer("TokenStamp", 0);
 
         }
 
@@ -48,7 +46,7 @@
 
 
             echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
-            echo (((time() - $this -> TokenStamp) < 30) . "\n");
+            echo (((time() - $this->GetBuffer("TokenStamp")) < 30) . "\n");
 
 
           if ((isset($this -> TokenStamp)) && ((time() - $this -> TokenStamp) < 30)) {
