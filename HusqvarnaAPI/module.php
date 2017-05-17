@@ -34,9 +34,9 @@
 
         public function CheckCredentialsForGui() {
           if ($this -> getToken() == NULL) {
-            echo "Authentifizierung fehlgeschlagen! URL, Username, Passwort und physikalische Verbindung checken..."
+            echo "Authentifizierung fehlgeschlagen! URL, Username, Passwort und physikalische Verbindung checken...";
           } else {
-            echo "Verbindung hergestellt."
+            echo "Verbindung hergestellt.";
           }
         }
 
