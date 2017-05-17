@@ -33,9 +33,17 @@
         }
 
 
+        public function getToken() : string {
+          if ((time() - $this -> tokenStamp) < 30) {
+            echo "reuse...";
+            return $this -> token;
+          } else {
+            echo "renew...";
+          }
+        }
 
 
-        public function authenticate($dump = false) : boolean{
+        private function authenticate($dump = false) : boolean {
           $credentials = array("sessions" => array("email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). ""));
           $data_string = json_encode($credentials);
 
@@ -52,21 +60,18 @@
           $result = curl_exec($request);
           $data = json_decode($result);
 
-          if(data)
-            return true;
-          else
+          if($data) {
+            if($dump) {
+              echo "AUTHENTICATE\n";
+              var_dump($data);
+              echo "\n\n";
+            }
+            $this -> token = $data -> sessions -> token;
+            $this -> tokenStamp = time();
+            $this -> userId = $data -> sessions -> user_id;
+          } else {
             return false;
-
-          if($dump){
-            echo "AUTHENTICATE\n";
-            var_dump($data);
-            echo "\n\n";
           }
-
-          $this -> token = $data -> sessions -> token;
-          $this -> userId = $data -> sessions -> user_id;
-
-
         }
 
 
