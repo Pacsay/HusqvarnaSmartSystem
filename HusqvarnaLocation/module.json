@@ -1,0 +1,14 @@
+{
+	"id": "{1D3CCF56-57E8-40FE-8D58-9CBF59DBFB2A}",
+	"name": "HusqvarnaLocation",
+	"type": 3,
+	"vendor": "",
+	"aliases":
+	[
+		"Husqvarna Location"
+	],
+	"parentRequirements": ["{4A290D20-A4F0-4063-961B-F353E598DAB8}"],
+	"childRequirements": [],
+	"implemented": ["{DD2839C1-C457-4782-ACA9-C98DD0B2737B}"],
+	"prefix": "HSS"
+}

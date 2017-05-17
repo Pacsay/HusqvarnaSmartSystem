@@ -1,0 +1,14 @@
+{
+	"id": "{83B34D8C-8A5E-44FD-83AB-C53635108182}",
+	"name": "HusqvarnaAPI",
+	"type": 1,
+	"vendor": "",
+	"aliases":
+	[
+		"Husqvarna API"
+	],
+	"parentRequirements": [],
+	"childRequirements": ["{DD2839C1-C457-4782-ACA9-C98DD0B2737B}"],
+	"implemented": ["{4A290D20-A4F0-4063-961B-F353E598DAB8}"],
+	"prefix": "HSS"
+}
