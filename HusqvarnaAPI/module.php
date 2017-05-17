@@ -1,7 +1,7 @@
 <?
     // Klassendefinition
     class HusqvarnaAPI extends IPSModule {
-      public $tokenStamp = 0;
+      public $TokenStamp = 0;
 
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
@@ -45,11 +45,11 @@
 
         private function getToken() {
 
-          if (isset($this -> tokenStamp)) {
-            echo "set";
-            echo (((time() - $this -> tokenStamp) < 30));
+          if (isset($this -> TokenStamp)) {
+            echo "Current TokenStamp: " . $this -> TokenStamp . "\n";
+            echo (((time() - $this -> TokenStamp) < 30) . "\n");
           } else {
-            echo "notset";
+            echo "No TokenStamp Set \n";
           }
           if ((isset($this -> tokenStamp)) && ((time() - $this -> tokenStamp) < 30)) {
             echo "reuse...";
