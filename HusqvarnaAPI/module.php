@@ -46,19 +46,12 @@
           $TokenStamp = (int) $this->GetBuffer("TokenStamp");
 
           echo "Current TokenStamp: " . $TokenStamp . "\n";
-          echo "TimeDiv is: " . (time() - $TokenStamp) . "\n";
-          if ((time() - $TokenStamp) < 30) {
-            echo "shouldrenew \n" ;
-          } else {
-            echo "shouldnotrenew \n";
-          }
-
-
-          if ((isset($this -> TokenStamp)) && ((time() - $this -> TokenStamp) < 30)) {
-            echo "reuse...";
+          echo "TimeDiv is: " . (time() - $this->GetBuffer("TokenStamp")) . "\n";
+          if ((time() - $TokenStamp) <= 30) {
+            echo "reusing Token " . $this -> token . "\n" ;
             return $this -> token;
           } else {
-            echo "renewing TokenStamp \n";
+            echo "renewing Token \n";
             if($this -> authenticate()) {
               echo "New TokenStamp " . $this -> TokenStamp . "\n";
               return $this -> token;
@@ -66,6 +59,15 @@
               return NULL;
             }
           }
+
+
+
+
+
+
+
+
+
         }
 
 
