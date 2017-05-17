@@ -30,7 +30,42 @@
         public function ApplyChanges() {
             // Diese Zeile nicht löschen
             parent::ApplyChanges();
-
         }
+
+
+
+
+        public function authenticate($dump = false) {
+          $credentials = array("sessions" => array("email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). ""));
+          $data_string = json_encode($credentials);
+
+          $request = curl_init($this->ReadPropertyString("LoginUrl"));
+          curl_setopt($request, CURLOPT_CUSTOMREQUEST, "POST");
+          curl_setopt($request, CURLOPT_POSTFIELDS, $data_string);
+          curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($request, CURLOPT_HTTPHEADER, array(
+              'Content-Type:application/json',
+              'Content-Length: ' . strlen($data_string))
+          );
+
+          $result = curl_exec($request);
+          $data = json_decode($result);
+
+          if($dump){
+            echo "AUTHENTICATE\n";
+            var_dump($data);
+            echo "\n\n";
+          }
+
+          $this -> token = $data -> sessions -> token;
+          $this -> userId = $data -> sessions -> user_id;
+        }
+
+
+
+
+
+
     }
 ?>
