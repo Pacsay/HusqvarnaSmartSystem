@@ -45,8 +45,12 @@
         private function getToken() {
 
 
-            echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
-            echo (((time() - $this->GetBuffer("TokenStamp")) < 30) . "\n");
+          echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
+          if ((time() - $this->GetBuffer("TokenStamp")) < 30) {
+            echo "shouldrenew \n" ;
+          } else {
+            echo "shouldnotrenew \n";
+          }
 
 
           if ((isset($this -> TokenStamp)) && ((time() - $this -> TokenStamp) < 30)) {
