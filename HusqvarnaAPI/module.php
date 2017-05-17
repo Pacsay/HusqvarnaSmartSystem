@@ -1,7 +1,7 @@
 <?
     // Klassendefinition
     class HusqvarnaAPI extends IPSModule {
-
+      public $tokenStamp = 0;
 
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
@@ -25,8 +25,6 @@
             $this->RegisterPropertyString("DevicesUrl", "https://smart.gardena.com/sg-1/devices?locationId=");
 
             $this->RegisterVariableString("Token", "Token");
-
-            var $this -> tokenStamp;
 
 
         }
