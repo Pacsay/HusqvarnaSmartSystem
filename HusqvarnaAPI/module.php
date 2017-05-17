@@ -47,7 +47,7 @@
         private function getToken() {
 
 
-            echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp"); . "\n";
+            echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
             echo (((time() - $this -> TokenStamp) < 30) . "\n");
           } else {
             echo "No TokenStamp Set \n";
