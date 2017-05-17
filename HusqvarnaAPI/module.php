@@ -58,7 +58,7 @@
           } else {
             echo "renewing TokenStamp \n";
             if($this -> authenticate()) {
-              echo "New TokenStamp " . $this -> TokenStamp . "\n"
+              echo "New TokenStamp " . $this -> TokenStamp . "\n";
               return $this -> token;
             } else {
               return NULL;
