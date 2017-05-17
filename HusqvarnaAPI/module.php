@@ -43,28 +43,21 @@
         }
 
         private function getToken() {
-          $TokenStamp = (int) $this->GetBuffer("TokenStamp");
 
-          echo "Current TokenStamp: " . $TokenStamp . "\n";
+          echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
           echo "TimeDiv is: " . (time() - $this->GetBuffer("TokenStamp")) . "\n";
-          if ((time() - $TokenStamp) <= 30) {
+          if ((time() - $this->GetBuffer("TokenStamp")) <= 30) {
             echo "reusing Token " . $this -> token . "\n" ;
             return $this -> token;
           } else {
             echo "renewing Token \n";
             if($this -> authenticate()) {
-              echo "New TokenStamp " . $this -> TokenStamp . "\n";
+              echo "New TokenStamp " . $this->GetBuffer("TokenStamp") . "\n";
               return $this -> token;
             } else {
               return NULL;
             }
           }
-
-
-
-
-
-
 
 
 
@@ -94,9 +87,11 @@
               var_dump($data);
               echo "\n\n";
             }
+
             $this -> token = $data -> sessions -> token;
-            $this -> TokenStamp = time();
+            $this->SetBuffer("TokenStamp", time());
             $this -> userId = $data -> sessions -> user_id;
+
             return true;
           } else {
             return false;
