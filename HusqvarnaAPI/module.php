@@ -45,6 +45,7 @@
             echo "reuse...";
             return $this -> token;
           } else {
+            echo "renew...";
             if($this -> authenticate()) {
               return $this -> token;
             } else {
@@ -80,6 +81,7 @@
             $this -> token = $data -> sessions -> token;
             $this -> tokenStamp = time();
             $this -> userId = $data -> sessions -> user_id;
+            return true;
           } else {
             return false;
           }
