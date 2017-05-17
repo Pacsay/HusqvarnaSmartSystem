@@ -4,6 +4,7 @@
 
         var $tokenStamp = 23;
 
+
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
         public function __construct($InstanceID) {
@@ -27,6 +28,7 @@
 
             $this->RegisterVariableString("Token", "Token");
 
+            $this -> tokenStamp = 24;
 
         }
 
