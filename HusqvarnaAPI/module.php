@@ -43,7 +43,7 @@
         }
 
 
-        private function authenticate(boolean $dump = false) : boolean {
+        private function authenticate($dump = false) {
           $credentials = array("sessions" => array("email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). ""));
           $data_string = json_encode($credentials);
 
