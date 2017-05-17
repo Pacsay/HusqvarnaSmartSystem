@@ -47,7 +47,7 @@
           echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
           echo "TimeDiv is: " . (time() - $this->GetBuffer("TokenStamp")) . "\n";
           if ((time() - $this->GetBuffer("TokenStamp")) <= 30) {
-            echo "reusing Token " . $this -> token . "\n" ;
+            echo "reusing Token " . $this->GetBuffer("Token") . "\n" ;
             return $this->GetBuffer("Token");
           } else {
             echo "renewing Token \n";
