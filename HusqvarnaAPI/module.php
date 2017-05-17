@@ -2,7 +2,7 @@
     // Klassendefinition
     class HusqvarnaAPI extends IPSModule {
 
-        var $tokenStamp;
+        var $tokenStamp = 23;
 
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
