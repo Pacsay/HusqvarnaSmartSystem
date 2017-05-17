@@ -23,6 +23,8 @@
             $this->RegisterPropertyString("LocationsUrl", "https://smart.gardena.com/sg-1/locations/?user_id=");
             $this->RegisterPropertyString("DevicesUrl", "https://smart.gardena.com/sg-1/devices?locationId=");
 
+            $this->RegisterVariableString("Token", "Token");
+
 
         }
 
