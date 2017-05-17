@@ -7,8 +7,8 @@
 	[
 		"Husqvarna Device"
 	],
-	"parentRequirements": ["{2D88B59D-AD34-4AD3-A51F-37122F111E02}"],
+	"parentRequirements": [],
 	"childRequirements": [],
-	"implemented": ["{B16C2629-4DFE-49A9-A966-10F7B515F3ED}"],
+	"implemented": [],
 	"prefix": "HSS"
 }

@@ -8,7 +8,7 @@
 		"Husqvarna Location"
 	],
 	"parentRequirements": ["{4A290D20-A4F0-4063-961B-F353E598DAB8}"],
-	"childRequirements": ["{B16C2629-4DFE-49A9-A966-10F7B515F3ED}"],
-	"implemented": ["{DD2839C1-C457-4782-ACA9-C98DD0B2737B}", "{2D88B59D-AD34-4AD3-A51F-37122F111E02}"],
+	"childRequirements": [],
+	"implemented": ["{DD2839C1-C457-4782-ACA9-C98DD0B2737B}"],
 	"prefix": "HSS"
 }
