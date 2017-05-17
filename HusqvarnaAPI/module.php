@@ -26,7 +26,7 @@
 
             $this->RegisterVariableString("Token", "Token");
 
-            $this->TokenStamp = 0;
+            $this->SetBuffer("tokenStamp", 0);
 
         }
 
@@ -46,8 +46,8 @@
 
         private function getToken() {
 
-          if (isset($this -> TokenStamp)) {
-            echo "Current TokenStamp: " . $this -> TokenStamp . "\n";
+
+            echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp"); . "\n";
             echo (((time() - $this -> TokenStamp) < 30) . "\n");
           } else {
             echo "No TokenStamp Set \n";
