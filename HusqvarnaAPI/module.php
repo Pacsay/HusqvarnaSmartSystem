@@ -32,13 +32,24 @@
             parent::ApplyChanges();
         }
 
+        public function CheckCredentialsForGui() {
+          if (this -> getToken() == NULL) {
+            echo "Authentifizierung fehlgeschlagen! URL, Username, Passwort und physikalische Verbindung checken..."
+          } else {
+            echo "Verbindung hergestellt."
+          }
+        }
 
-        public function getToken() {
+        private function getToken() {
           if ( isset($this -> tokenStamp) && ((time() - $this -> tokenStamp) < 30)) {
             echo "reuse...";
             return $this -> token;
           } else {
-            echo "renew...";
+            if(this -> authenticate()) {
+              return $this -> token;
+            } else {
+              return NULL;
+            }
           }
         }
 

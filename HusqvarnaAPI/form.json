@@ -10,7 +10,7 @@
 		{ "type": "Label", "label": "Eingetragene Gardena-Benutzerdaten überprüfen:" },
 		{ "type": "Button", "label": "checken", "onClick": "echo $id;" },
 		{ "type": "Label", "label": "Aktuell bei Gardena hinterlegte Standorte abrufen:" },
-		{ "type": "Button", "label": "Standorte abrufen", "onClick": "HSS_getToken($id);" },
+		{ "type": "Button", "label": "Standorte abrufen", "onClick": "HSS_CheckCredentialsForGui($id);" },
 
 	]
 }
