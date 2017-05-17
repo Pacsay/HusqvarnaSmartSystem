@@ -43,10 +43,11 @@
         }
 
         private function getToken() {
+          $TokenStamp = (int) $this->GetBuffer("TokenStamp");
 
-
-          echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
-          if ((time() - $this->GetBuffer("TokenStamp")) < 30) {
+          echo "Current TokenStamp: " . $TokenStamp . "\n";
+          echo "TimeDiv is: " . (time() - $TokenStamp) . "\n";
+          if ((time() - $TokenStamp) < 30) {
             echo "shouldrenew \n" ;
           } else {
             echo "shouldnotrenew \n";
