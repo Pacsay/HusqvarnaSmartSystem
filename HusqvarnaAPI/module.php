@@ -41,9 +41,13 @@
         }
 
         private function getToken() {
-          echo (isset($this -> tokenStamp)) . "\n";
-          if (isset($this -> tokenStamp))
+
+          if (isset($this -> tokenStamp)) {
+            echo "set";
             echo (((time() - $this -> tokenStamp) < 30));
+          } else {
+            echo "notset";
+          }
           if ((isset($this -> tokenStamp)) && ((time() - $this -> tokenStamp) < 30)) {
             echo "reuse...";
             return $this -> token;
