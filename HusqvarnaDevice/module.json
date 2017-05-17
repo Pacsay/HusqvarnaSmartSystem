@@ -1,0 +1,14 @@
+{
+	"id": "{E57F5E7F-7FF1-4E21-BF22-02810AA0E945}",
+	"name": "HusqvarnaDevice",
+	"type": 3,
+	"vendor": "",
+	"aliases":
+	[
+		"Husqvarna Device"
+	],
+	"parentRequirements": ["{2D88B59D-AD34-4AD3-A51F-37122F111E02}"],
+	"childRequirements": [],
+	"implemented": ["{B16C2629-4DFE-49A9-A966-10F7B515F3ED}"],
+	"prefix": "HSS"
+}
