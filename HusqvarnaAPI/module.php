@@ -51,12 +51,14 @@
           } else {
             echo "No TokenStamp Set \n";
           }
-          if ((isset($this -> tokenStamp)) && ((time() - $this -> tokenStamp) < 30)) {
+
+          if ((isset($this -> TokenStamp)) && ((time() - $this -> TokenStamp) < 30)) {
             echo "reuse...";
             return $this -> token;
           } else {
-            echo "renew...";
+            echo "renewing TokenStamp \n";
             if($this -> authenticate()) {
+              echo "New TokenStamp " . $this -> TokenStamp . "\n"
               return $this -> token;
             } else {
               return NULL;
@@ -89,7 +91,7 @@
               echo "\n\n";
             }
             $this -> token = $data -> sessions -> token;
-            $this -> tokenStamp = time();
+            $this -> TokenStamp = time();
             $this -> userId = $data -> sessions -> user_id;
             return true;
           } else {
