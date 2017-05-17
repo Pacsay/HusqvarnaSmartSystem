@@ -1,7 +1,7 @@
 <?
     // Klassendefinition
     class HusqvarnaAPI extends IPSModule {
-      public $TokenStamp = 0;
+
 
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
@@ -26,6 +26,7 @@
 
             $this->RegisterVariableString("Token", "Token");
 
+            $this->TokenStamp = 0;
 
         }
 
