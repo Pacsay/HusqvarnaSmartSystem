@@ -33,7 +33,7 @@
         }
 
 
-        public function getToken() : string {
+        public function getToken() {
           if ((time() - $this -> tokenStamp) < 30) {
             echo "reuse...";
             return $this -> token;
@@ -43,7 +43,7 @@
         }
 
 
-        private function authenticate($dump = false) : boolean {
+        private function authenticate(boolean $dump = false) : boolean {
           $credentials = array("sessions" => array("email" => "" . $this->ReadPropertyString("user"). "", "password" => "" . $this->ReadPropertyString("password"). ""));
           $data_string = json_encode($credentials);
 
