@@ -49,9 +49,7 @@
 
             echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
             echo (((time() - $this -> TokenStamp) < 30) . "\n");
-          } else {
-            echo "No TokenStamp Set \n";
-          }
+
 
           if ((isset($this -> TokenStamp)) && ((time() - $this -> TokenStamp) < 30)) {
             echo "reuse...";
