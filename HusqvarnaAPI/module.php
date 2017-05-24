@@ -35,8 +35,8 @@
         }
 
         public function CheckCredentialsForGui() {
-          if ($this -> getToken() == NULL) {
-            echo "Authentifizierung fehlgeschlagen! URL, Username, Passwort und physikalische Verbindung checken...";
+          if ($this -> getToken()) {
+            echo "Authentifizierung fehlgeschlagen! \nURL, Username, Passwort, Verbindung usw. checken...";
           } else {
             echo "Verbindung hergestellt.";
           }
@@ -44,23 +44,15 @@
 
         private function getToken() {
 
-          echo "Current TokenStamp: " . $this->GetBuffer("TokenStamp") . "\n";
-          echo "TimeDiv is: " . (time() - $this->GetBuffer("TokenStamp")) . "\n";
           if ((time() - $this->GetBuffer("TokenStamp")) <= 30) {
-            echo "reusing Token " . $this->GetBuffer("Token") . "\n" ;
             return $this->GetBuffer("Token");
           } else {
-            echo "renewing Token \n";
             if($this -> authenticate()) {
-              echo "New TokenStamp " . $this->GetBuffer("TokenStamp") . "\n";
               return $this->GetBuffer("Token");
             } else {
-              return NULL;
+              return false;
             }
           }
-
-
-
         }
 
 
